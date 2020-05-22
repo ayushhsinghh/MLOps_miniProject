@@ -77,3 +77,9 @@ model.fit(x_train, y_train,
           shuffle=True)
 
 model.save('MNIST_cnn.h5')
+
+scores = model.evaluate(x_test, y_test, verbose=1)
+print('Test accuracy:', scores[1]*100)
+g = open("Actual_score.txt","w")
+g.write(str(scores[1]*100))
+g.close()
